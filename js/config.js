@@ -1,0 +1,1 @@
+const EMAILJS_CONFIG = { PUBLIC_KEY: "f7GNu5hMQlFy5LXwB", SERVICE_ID: "service_00o52kn", TEMPLATE_ID: "template_8jlj4e7" };
